@@ -1,0 +1,42 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+     Obten tu token de Spotify. Por Rolando Dominguez.
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large"></ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <form (ngSubmit)="logForm()">
+    <ion-item>
+      <ion-label>Client Id</ion-label>
+      <ion-input type="text" [(ngModel)]="clientId" name="title"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Client Secret</ion-label>
+      <ion-input type="password" [(ngModel)]="clientSecret" name="description"></ion-input>
+    </ion-item>
+   
+    <ion-button (click)="getToken()" color="primary">Obtener Token Spotify</ion-button>
+    
+  </form>
+
+  <ion-card *ngIf="accesToken !== undefined">
+    <img width="300" height="250"  src="https://www.pngitem.com/pimgs/m/148-1487614_spotify-logo-small-spotify-logo-transparent-hd-png.png" />
+    <ion-card-header>
+      <ion-card-subtitle>Tu token de spotify</ion-card-subtitle>
+      <ion-card-title>Spotify Response</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+     {{accesToken}}
+    </ion-card-content>
+  </ion-card>
+
+  
+</ion-content>
